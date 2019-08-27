@@ -45,12 +45,11 @@ namespace MedioClinic
             
             route = routes.MapRoute(
                 name: "LandingPage",
-                url: "{culture}/LandingPage/{nodeGuid}/{nodeAlias}",
-                defaults: new { culture = defaultCulture.Name, controller = "LandingPage", action = "Index", nodeGuid = string.Empty, nodeAlias = "" },
+                url: "{culture}/LandingPage/{nodeAlias}",
+                defaults: new { culture = defaultCulture.Name, controller = "LandingPage", action = "Index", nodeAlias = "" },
                 constraints: new
                 {
                     culture = new SiteCultureConstraint(AppConfig.SiteName),
-                    nodeGuid = new System.Web.Mvc.Routing.Constraints.GuidRouteConstraint(),
                     nodeAlias = new System.Web.Mvc.Routing.Constraints.OptionalRouteConstraint(new System.Web.Mvc.Routing.Constraints.RegexRouteConstraint(@"[\w\d_-]*"))
                 }
             );

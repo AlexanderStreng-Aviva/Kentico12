@@ -683,3 +683,9 @@ border-radius: 2px; */
           cursor: pointer;
           display: block;
       }
+
+.kn-system-messages p {
+    padding: 0.5rem;
+}
+
+

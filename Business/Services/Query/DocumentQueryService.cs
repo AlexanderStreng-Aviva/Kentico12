@@ -19,12 +19,16 @@ namespace Business.Services.Query
             _siteContext = siteContext;
         }
 
+
         public DocumentQuery<TDocument> GetDocument<TDocument>(Guid nodeGuid) where TDocument : TreeNode, new() =>
             GetDocuments<TDocument>().TopN(1).WhereEquals("NodeGUID", nodeGuid);
 
+        public DocumentQuery<TDocument> GetDocument<TDocument>(string pageAlias) where TDocument : TreeNode, new() =>
+            GetDocuments<TDocument>().TopN(1).WhereEquals("NodeAlias", pageAlias);
+
         public DocumentQuery<TDocument> GetDocuments<TDocument>() where TDocument : TreeNode, new() =>
             (_siteContext.IsPreviewEnabled) ? GetPreviewQuery<TDocument>() : GetLiveQuery<TDocument>();
-
+        
         private DocumentQuery<TDocument> GetLiveQuery<TDocument>() where TDocument : TreeNode, new() =>
             DocumentHelper.GetDocuments<TDocument>()
                 .Columns(_coreColumns.Concat(new[] {"NodeSiteID"}))

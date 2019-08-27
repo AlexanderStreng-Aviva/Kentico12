@@ -466,6 +466,7 @@
     <Compile Include="Dto\Doctor\DoctorSectionDto.cs" />
     <Compile Include="Dto\Home\HomeSectionDto.cs" />
     <Compile Include="Dto\IDto.cs" />
+    <Compile Include="Dto\LandingPage\LandingPageDto.cs" />
     <Compile Include="Dto\Map\MapLocationDto.cs" />
     <Compile Include="Dto\Menu\MenuItemDto.cs" />
     <Compile Include="Dto\Page\PageMetadataDto.cs" />
@@ -519,6 +520,9 @@
     <Compile Include="Repository\Home\HomeSectionRepository.cs" />
     <Compile Include="Repository\Home\IHomeSectionRepository.cs" />
     <Compile Include="Repository\IRepository.cs" />
+    <Compile Include="Repository\LandingPage\ILandingPageRepository.cs" />
+    <Compile Include="Repository\LandingPage\LandingPageProfile.cs" />
+    <Compile Include="Repository\LandingPage\LandingPageRepository.cs" />
     <Compile Include="Repository\Map\IMapRepository.cs" />
     <Compile Include="Repository\Map\MapProfile.cs" />
     <Compile Include="Repository\Map\MapRepository.cs" />
