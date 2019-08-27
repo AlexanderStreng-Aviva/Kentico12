@@ -766,6 +766,10 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LandingPageController.cs" />
     <Compile Include="Controllers\NotFoundController.cs" />
+    <Compile Include="Controllers\Sections\SingleColumnSectionController.cs" />
+    <Compile Include="Controllers\Sections\TwoColumnFiftyFiftySectionController.cs" />
+    <Compile Include="Controllers\Sections\TwoColumnFortySixtySectionController.cs" />
+    <Compile Include="Controllers\Sections\TwoColumnSixtyFortySectionController.cs" />
     <Compile Include="Extensions\LocalizationExtensions.cs" />
     <Compile Include="Extensions\UrlExtensions.cs" />
     <Compile Include="Global.asax.cs">
@@ -804,6 +808,10 @@
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\NotFound\Index.cshtml" />
     <Content Include="Views\LandingPage\Index.cshtml" />
+    <Content Include="Views\Shared\Sections\_SingleColumnSection.cshtml" />
+    <Content Include="Views\Shared\Sections\_TwoColumnFiftyFiftySection.cshtml" />
+    <Content Include="Views\Shared\Sections\_TwoColumnFortySixtySection.cshtml" />
+    <Content Include="Views\Shared\Sections\_TwoColumnSixtyFortySection.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Business\Business.csproj">
