@@ -1,0 +1,16 @@
+﻿@using MedioClinic.Models.InlineEditors.TextEditor
+@using MedioClinic.Models.Widgets.TextWidget
+@model MedioClinic.Models.Widgets.TextWidget.TextWidgetViewModel
+
+@if (Context.Kentico().PageBuilder().EditMode)
+{
+    Html.RenderPartial("InlineEditors/_TextEditor", new TextEditorViewModel
+    {
+        PropertyName = nameof(TextWidgetProperties.Text),
+        Text = Model.Text
+    });
+}
+else
+{
+    @Html.Raw(Model.Text);
+}
