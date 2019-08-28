@@ -45,7 +45,8 @@ namespace MedioClinic
             builder.Register(c => GetMapperInstance()).As<IMapper>().InstancePerRequest();
 
             builder.RegisterType<BusinessDependencies>().As<IBusinessDependencies>().InstancePerRequest();
-
+            builder.RegisterType<FileManagementHelper>().As<IFileManagementHelper>().InstancePerRequest();
+            builder.RegisterType<ErrorHelper>().As<IErrorHelper>().InstancePerRequest();
 
             // Resolves the dependencies
             DependencyResolver.SetResolver(new AutofacDependencyResolver(builder.Build()));

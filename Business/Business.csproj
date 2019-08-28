@@ -539,6 +539,8 @@
     <Compile Include="Services\Context\ISiteContextService.cs" />
     <Compile Include="Services\Culture\CultureService.cs" />
     <Compile Include="Services\Culture\ICultureService.cs" />
+    <Compile Include="Services\Errors\ErrorHelperService.cs" />
+    <Compile Include="Services\Errors\IErrorHelperService.cs" />
     <Compile Include="Services\IService.cs" />
     <Compile Include="Services\MediaLibrary\IMediaLibraryService.cs" />
     <Compile Include="Dto\MediaLibrary\MediaLibraryFileDto.cs" />

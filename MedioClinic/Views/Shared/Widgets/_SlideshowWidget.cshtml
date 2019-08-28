@@ -1,0 +1,58 @@
+﻿@using MedioClinic.Extensions
+@using MedioClinic.Models.InlineEditors.Slideshow
+@using MedioClinic.Models.Widgets.SlideshowWidget
+@model MedioClinic.Models.Widgets.SlideshowWidget.SlideshowWidgetViewModel
+
+@{
+    var editMode = Context.Kentico().PageBuilder().EditMode;
+    var swiperId = "swiper-" + Guid.NewGuid().ToString().ToLower();
+}
+
+<div class="swiper-container" id="@swiperId">
+    <div class="swiper-wrapper">
+        @if (Model.Images != null && Model.Images.Any())
+        {
+            // Loop through all images.
+            foreach (var image in Model.Images)
+            {
+                if (image != null)
+                {
+                    var imageUrl = Url.KenticoImageUrl(image.GetPath());
+
+                    <div class="swiper-slide">
+                        <img src="@Html.Raw(imageUrl)"/>
+                    </div>
+                }
+            }
+        }
+    </div>
+
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+
+    @if (editMode)
+    {
+        Html.RenderPartial("InlineEditors/_SlideshowEditor", new SlideshowEditorViewModel
+        {
+            PropertyName = nameof(SlideshowWidgetProperties.ImageIds),
+            SwiperId = swiperId,
+            Images = Model.Images
+        });
+    }
+</div>
+
+<script>
+
+    @{
+        var initSwiperLiteral = $"window.medioClinic.slideshowWidget.initSwiper('{swiperId}');";
+    }
+
+    // Initialize the current Swiper object.
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", function () {
+            @Html.Raw(initSwiperLiteral)
+        });
+    } else {
+        @Html.Raw(initSwiperLiteral)
+    }
+</script>

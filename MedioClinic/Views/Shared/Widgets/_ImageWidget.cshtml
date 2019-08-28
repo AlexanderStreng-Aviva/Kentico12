@@ -1,0 +1,21 @@
+﻿@using MedioClinic.Extensions
+@using MedioClinic.Models.InlineEditors.ImageUploader
+@using MedioClinic.Models.Widgets.ImageWidget
+@model MedioClinic.Models.Widgets.ImageWidget.ImageWidgetViewModel
+
+@{
+    if (Model.Image != null)
+    {
+        var imageUrl = Url.KenticoImageUrl(Model.Image.GetPath());
+        <img src="@Html.Raw(imageUrl)" class="responsive-img" />
+    }
+
+    if (Context.Kentico().PageBuilder().EditMode)
+    {
+        Html.RenderPartial("InlineEditors/_ImageUploaderEditor", new ImageUploaderEditorViewModel
+        {
+            Image = Model.Image,
+            PropertyName = nameof(ImageWidgetProperties.ImageGuid)
+        });
+    }
+}

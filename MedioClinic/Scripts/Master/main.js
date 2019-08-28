@@ -8,6 +8,34 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
+(function (medioClinic) {
+
+    medioClinic.showMessage = function (message, type) {
+        var messageElement = document.querySelector(".kn-system-messages");
+
+        if (message && type) {
+            if (type === "info") {
+                messageElement.appendChild(buildMessageMarkup(message, "light-blue lighten-5"));
+                console.info(message);
+            } else if (type === "warning") {
+                messageElement.appendChild(buildMessageMarkup(message, "yellow lighten-3"));
+                console.warn(message);
+            } else if (type === "error") {
+                messageElement.appendChild(buildMessageMarkup(message, "red lighten-3"));
+                console.error(message);
+            }
+        }
+    };
+
+    var buildMessageMarkup = function (message, cssClasses) {
+        var paragraph = document.createElement("p");
+        paragraph.classList = cssClasses;
+        paragraph.innerText = message;
+
+        return paragraph;
+    };
+
+}(window.medioClinic = window.medioClinic || {}));
 
 /*
   /* Contact us page - Google map 
