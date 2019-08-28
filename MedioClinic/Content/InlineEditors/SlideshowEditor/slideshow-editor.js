@@ -11,38 +11,69 @@
             
             var plusButton = editor.parentElement.querySelector("ul.kn-slideshow-buttons .kn-swiper-plus");
             var minusButton = editor.parentElement.querySelector("ul.kn-slideshow-buttons .kn-swiper-minus");
-            var slideIds = window.medioClinic.slideshowWidget.collectImageIds(swiper);
 
-            var imageGuids = slideIds.map(function (slideId) {
-                return window.medioClinic.slideshowWidget.getGuidFromId(slideId);
-            });
+            // Image GUID retrieval: Alternative 2 (begin)
+            var imageGuids = editor.getAttribute("data-image-guids").split(";");
+            imageGuids.splice(-1, 1);
 
             /** Adds a new slide to the Swiper object, together with a new Dropzone object. */
-            var addSlide = function ()  {
+            var addSlide = function () {
                 var tempGuid = generateUuid();
                 var tempId = imageGuidPrefix + tempGuid;
 
                 var markup = buildSlideMarkup(tempId, "Drop image here or <a class='dz-clickable'>click</a> to browse");
 
                 var activeIndexWhenAdded = swiper.slides.length > 0 ? swiper.activeIndex + 1 : 0;
+                imageGuids.splice(activeIndexWhenAdded, 0, tempGuid);
                 swiper.addSlide(activeIndexWhenAdded, markup);
                 swiper.slideNext();
+
+                var previewTemplate = "<div class=\"dz-preview dz-file-preview\"><img data-dz-thumbnail /></div>";
+                var enforceDimensions = editor.getAttribute("data-enforce-dimensions") === "true";
+                var computedStyle = window.getComputedStyle(editor.parentElement);
+                var computedWidth = computedStyle.width.substring(0, computedStyle.width.length - 2);
+                var computedHeight = computedStyle.height.substring(0, computedStyle.height.length - 2);
+                var width = enforceDimensions ? editor.getAttribute("data-width") : Math.round(computedWidth);
+                var height = enforceDimensions ? editor.getAttribute("data-height") : Math.round(computedHeight);
 
                 var dropzone = new Dropzone(editor.parentElement.querySelector("div#" + tempId + ".dropzone"), {
                     acceptedFiles: window.medioClinic.dropzoneCommon.acceptedFiles,
                     maxFiles: 1,
                     url: editor.getAttribute("data-upload-url"),
                     clickable: editor.parentElement.querySelector("div#" + tempId + ".dropzone a.dz-clickable"),
+
                     dictInvalidFileType: "Unsupported file type. Please upload files of the following types: .bmp, .gif, .ico, .png, .wmf, .jpg, .jpeg, .tiff, .tif",
+
+                    previewsContainer: swiper.slides[activeIndexWhenAdded],
+                    previewTemplate: previewTemplate,
+                    thumbnailWidth: width,
+                    thumbnailHeight: height
                 });
 
                 dropzone.on("success",
                     function (event) {
-                        var newGuid = tempGuid;
+                        var content = JSON.parse(event.xhr.response);
+                        var newGuid = content.guid;
+                        replaceId(dropzone.element, imageGuidPrefix + newGuid);
+                        hideDropzoneLabels(dropzone.element);
                         var childElementIndex = getChildElementIndex(dropzone.element);
                         imageGuids.splice(childElementIndex, 1, newGuid);
                         dispatchBuilderEvent(imageGuids);
                     });
+
+                dropzone.on("error",
+                    function (event) {
+                        window.medioClinic.dropzoneCommon.processErrors(event.xhr.status, options.localizationService);
+                    });
+            };
+
+            var replaceId = function (htmlElement, newId) {
+                htmlElement.id = newId;
+            };
+
+            var hideDropzoneLabels = function (dropzoneElement) {
+                dropzoneElement.querySelector("a.dz-clickable").style.display = "none";
+                dropzoneElement.querySelector(".dz-message").style.display = "none";
             };
 
             var removeSlide = function ()  {
@@ -104,7 +135,31 @@
             
             plusButton.addEventListener("click", addSlide);
             minusButton.addEventListener("click", removeSlide);
+        },
+
+        destroy: function (options) {
+            var swiper = window.medioClinic
+                .slideshowWidget
+                .getCurrentSwiper(options.editor, window.medioClinic.slideshowWidget.swiperGuidAttribute);
+
+            if (swiper) {
+                var slideIds = window.medioClinic.slideshowWidget.collectImageIds(swiper);
+
+                if (slideIds && Array.isArray(slideIds)) {
+                    slideIds.forEach(function (dropzoneId) {
+                        var dropzoneElement = document.getElementById(dropzoneId);
+
+                        if (dropzoneElement && dropzoneElement.dropzone) {
+                            dropzoneElement.dropzone.destroy();
+                        }
+                    });
+                }
+
+                window.medioClinic.slideshowWidget.removeSwiper(swiper.el.id);
+                swiper.destroy();
+            }
         }
+
     });
 })();
 

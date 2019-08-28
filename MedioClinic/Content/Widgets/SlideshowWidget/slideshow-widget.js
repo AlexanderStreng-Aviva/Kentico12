@@ -6,13 +6,15 @@
     /** The name of the data- HTML attribute that holds the Swiper GUID. */
     slideshowWidget.swiperGuidAttribute = "data-swiper-guid";
 
-    slideshowWidget.initSwiper = function (swiperId) {
-        var configuration =  {
-            loop: false,
-            speed: 300,
+    slideshowWidget.initSwiper = function (swiperId, editMode, transitionDelay, transitionSpeed) {
+        var swiperSelector = "#" + swiperId;
+
+        var configuration = {
+            loop: !editMode,
+            speed: transitionSpeed,
             navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev"
+                nextEl: "#" + swiperId + " .swiper-button-next",
+                prevEl: "#" + swiperId + " .swiper-button-prev"
             },
             effect: "fade",
             fadeEffect: {
@@ -20,10 +22,15 @@
             },
             autoHeight: true
         };
-        var swiperSelector = "#" + swiperId;
-        var swiper = new Swiper(swiperSelector, configuration);
 
-        console.log('initSwiper called with selector: ' + swiperSelector + ' swiperId: ' + swiperId);
+        if (!editMode) {
+            configuration["autoplay"] = {
+                delay: transitionDelay,
+                disableOnInteraction: true
+            };
+        }
+
+        var swiper = new Swiper(swiperSelector, configuration);
         window.medioClinic.slideshowWidget.addSwiper(swiperId, swiper);
     };
     

@@ -632,6 +632,7 @@
     <Content Include="Content\Css\Master\materialize.css" />
     <Content Include="Content\Css\Master\materialize.min.css" />
     <Content Include="Content\Css\Master\style.css" />
+    <Content Include="Content\Css\Master\swiper.css" />
     <Content Include="Content\Images\facebook.png" />
     <Content Include="Content\Images\Logo\favicon.png" />
     <Content Include="Content\Images\Logo\Logoic.png" />
@@ -644,6 +645,7 @@
     <Content Include="Content\InlineEditors\ImageUploaderEditor\ImageUploaderEditor.css" />
     <Content Include="Content\InlineEditors\Shared\dropzone-common.js" />
     <Content Include="Content\InlineEditors\SlideshowEditor\slideshow-editor.js" />
+    <Content Include="Content\InlineEditors\SlideshowEditor\SlideshowEditor.css" />
     <Content Include="Content\InlineEditors\SlideshowEditor\swiper\css\swiper.css" />
     <Content Include="Content\InlineEditors\SlideshowEditor\swiper\js\swiper.js" />
     <Content Include="Content\InlineEditors\TextEditor\medium-editor\css\medium-editor.css" />
@@ -665,6 +667,7 @@
     <Content Include="Content\InlineEditors\TextEditor\text-editor.js" />
     <Content Include="Content\InlineEditors\TextEditor\TextEditor.css" />
     <Content Include="Content\Widgets\SlideshowWidget\slideshow-widget.js" />
+    <Content Include="Content\Widgets\SlideshowWidget\SlideshowWidget.css" />
     <Content Include="Global.asax" />
     <Content Include="Kentico\Content\FormComponents\FileUploader\file-uploader.js" />
     <Content Include="Kentico\Content\FormComponents\USPhone\dependencyLibs\inputmask.dependencyLib.js" />
@@ -772,10 +775,12 @@
     <Content Include="Kentico\Scripts\modal-dialog.js" />
     <Content Include="Kentico\Scripts\shim.min.js" />
     <Content Include="Scripts\Master\init.js" />
+    <Content Include="Scripts\Master\jquery-3.3.1.js" />
     <Content Include="Scripts\Master\main.js" />
     <Content Include="Scripts\Master\materialize.js" />
     <Content Include="Scripts\Master\materialize.min.js" />
     <Content Include="Scripts\Master\modernizr-2.8.3.js" />
+    <Content Include="Scripts\Master\swiper.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

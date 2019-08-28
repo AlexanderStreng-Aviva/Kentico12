@@ -9,5 +9,11 @@ namespace MedioClinic.Models.Widgets.SlideshowWidget
     public class SlideshowWidgetViewModel
     {
         public IEnumerable<DocumentAttachment> Images { get; set; }
+        public int Width { get; set; }
+        public int Height { get; set; }
+        public bool EnforceDimensions { get; set; }
+        public int TransitionDelay { get; set; }
+        public int TransitionSpeed { get; set; }
+        public bool DisplayArrowSigns { get; set; }
     }
 }

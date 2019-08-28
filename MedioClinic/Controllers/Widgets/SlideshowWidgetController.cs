@@ -19,11 +19,21 @@ namespace MedioClinic.Controllers.Widgets
         public ActionResult Index()
         {
             var properties = GetProperties();
-            var images = GetImages(properties?.ImageIds);
+            if (properties == null)
+            {
+                return HttpNotFound();
+            }
 
+            var images = GetImages(properties?.ImageIds);
             return PartialView("Widgets/_SlideshowWidget", new SlideshowWidgetViewModel
             {
                 Images = images,
+                Width = properties.Width,
+                Height = properties.Height,
+                EnforceDimensions = properties.EnforceDimensions,
+                TransitionDelay = properties.TransitionDelay,
+                TransitionSpeed = properties.TransitionSpeed,
+                DisplayArrowSigns = properties.DisplayArrowSigns
             });
         }
 

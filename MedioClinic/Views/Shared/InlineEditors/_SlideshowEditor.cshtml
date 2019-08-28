@@ -10,6 +10,9 @@
             pageId = Context.Kentico().PageBuilder().PageIdentifier
         }), false);
     }
+
+    string SerializeGuids(IEnumerable<Guid> guids) =>
+        string.Concat(guids.Select(guid => guid.ToString() + ";"));
 }
 
 @using (Html.Kentico().BeginInlineEditor("slideshow-editor", Model.PropertyName,
@@ -17,6 +20,7 @@
     {
         @class = "kn-slideshow-editor",
         data_swiper_guid = Model.SwiperId,
+        data_image_guids = SerializeGuids(Model.Images.Select(image => image.AttachmentGUID)),
         data_upload_url = GetActionUrl("Upload").ToString(),
         data_delete_url = GetActionUrl("Delete").ToString(),
     }))
