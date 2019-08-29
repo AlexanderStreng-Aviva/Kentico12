@@ -8,8 +8,10 @@ using MedioClinic.Controllers.Widgets;
 using MedioClinic.Models.Widgets.SlideshowWidget;
 
 [assembly:
-    RegisterWidget("MedioClinic.Widget.Slideshow", typeof(SlideshowWidgetController), "Slideshow",
-        Description = "Slideshow widget that displays multiple images stored as page attachments.",
+    RegisterWidget("MedioClinic.Widget.Slideshow", 
+        typeof(SlideshowWidgetController),
+        "{$Widget.Slideshow.Name$}",
+        Description = "{$Widget.Slideshow.Description$}",
         IconClass = "icon-carousel")]
 
 namespace MedioClinic.Controllers.Widgets

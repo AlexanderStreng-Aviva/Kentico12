@@ -624,9 +624,7 @@
       <Private>True</Private>
     </Reference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Content\Css\Master\icons.css" />
     <Content Include="Content\Css\Master\materialize.css" />
@@ -875,7 +873,13 @@
       <Name>Business</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="App_Data\Global\MedioClinic.resx" />
+    <EmbeddedResource Include="App_Data\Global\Resources\Kentico.Builder.resx" />
+    <EmbeddedResource Include="App_Data\Global\Resources\Kentico.Components.resx" />
+    <EmbeddedResource Include="App_Data\Global\Resources\Kentico.FormBuilder.resx" />
+    <EmbeddedResource Include="App_Data\Global\Resources\Kentico.PageBuilder.resx" />
+  </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\packages\AWSSDK.S3.3.1.9.0\analyzers\dotnet\cs\AWSSDK.S3.CodeAnalysis.dll" />
   </ItemGroup>

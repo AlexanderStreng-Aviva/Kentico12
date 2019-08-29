@@ -1,4 +1,5 @@
-﻿@model MedioClinic.Models.InlineEditors.ImageUploader.ImageUploaderEditorViewModel
+﻿@using MedioClinic.Extensions
+@model MedioClinic.Models.InlineEditors.ImageUploader.ImageUploaderEditorViewModel
 
 @{
     string GetContainerClass() => Model.Image != null ? "kn-image-uploader-container" : "kn-image-uploader-empty-container";
@@ -13,18 +14,21 @@
     }
 }
 
+
+
 @using (Html.Kentico().BeginInlineEditor("image-uploader-editor", Model.PropertyName,
-    new
-    {
-        @class = "kn-image-uploader-editor",
-        data_upload_url = GetActionUrl().ToString()
-    }))
+new
 {
-    <div class="@GetContainerClass()">
-        <div class="dz-uploader">
-            <div class="dz-message top">
-                @Html.Raw("Drop image here or <a class='dz-clickable'>click</a> to browse")
-            </div>
+    @class = "kn-image-uploader-editor",
+    data_upload_url = GetActionUrl().ToString()
+}))
+{
+<div class="@GetContainerClass()">
+    <div class="dz-uploader">
+        <div class="dz-message top">
+            @Html.Raw(Html.Localize("InlineEditors.Dropzone.DropText"))
         </div>
     </div>
+</div>
 }
+

@@ -11,7 +11,7 @@
                 url: editor.getAttribute("data-upload-url"),
                 createImageThumbnails: false,
                 clickable: clickable,
-                dictInvalidFileType: "Unsupported file type. Please upload files of the following types: .bmp, .gif, .ico, .png, .wmf, .jpg, .jpeg, .tiff, .tif"
+                dictInvalidFileType: options.localizationService.getString("InlineEditors.Dropzone.InvalidFileType")
             });
             
             dropzone.on("success",

@@ -3,8 +3,9 @@ using Kentico.PageBuilder.Web.Mvc;
 using MedioClinic.Controllers.Widgets;
 using MedioClinic.Models.Widgets.TextWidget;
 
-[assembly:RegisterWidget("MedioClinic.Widget.Text", typeof(TextWidgetController), "Text editor widget",
-        Description = "Default text editor widget with limited functionality", IconClass = "icon-l-text")]
+[assembly:RegisterWidget("MedioClinic.Widget.Text", typeof(TextWidgetController),
+    "{$Widget.Text.Name$}",
+        Description = "{$Widget.Text.Description$}", IconClass = "icon-l-text")]
 
 namespace MedioClinic.Controllers.Widgets
 {

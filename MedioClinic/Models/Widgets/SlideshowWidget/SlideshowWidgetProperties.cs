@@ -8,22 +8,22 @@ namespace MedioClinic.Models.Widgets.SlideshowWidget
     {
         public Guid[] ImageIds { get; set; }
 
-        [EditingComponent(IntInputComponent.IDENTIFIER, Label = "Transition delay (milliseconds)", Order = 1)]
+        [EditingComponent(IntInputComponent.IDENTIFIER, Label = "{$Widget.Slideshow.TransitionDelay$}", Order = 1)]
         public int TransitionDelay { get; set; } = 5000;
 
-        [EditingComponent(IntInputComponent.IDENTIFIER, Label = "Transition speed (milliseconds)", Order = 2)]
+        [EditingComponent(IntInputComponent.IDENTIFIER, Label = "{$Widget.Slideshow.TransitionSpeed$}", Order = 2)]
         public int TransitionSpeed { get; set; } = 300;
 
-        [EditingComponent(CheckBoxComponent.IDENTIFIER, Label = "Display arrow signs on the live site", Order = 3)]
+        [EditingComponent(CheckBoxComponent.IDENTIFIER, Label = "{$Widget.Slideshow.DisplayArrowSigns$}", Order = 3)]
         public bool DisplayArrowSigns { get; set; } = true;
 
-        [EditingComponent(CheckBoxComponent.IDENTIFIER, Label = "Enforce dimensions in live site", Order = 4)]
+        [EditingComponent(CheckBoxComponent.IDENTIFIER, Label = "{$Widget.Slideshow.EnforceDimensions$}", Order = 4)]
         public bool EnforceDimensions { get; set; }
 
-        [EditingComponent(IntInputComponent.IDENTIFIER, Label = "Width (pixels)", Order = 5)]
+        [EditingComponent(IntInputComponent.IDENTIFIER, Label = "{$Widget.Slideshow.Width$}", Order = 5)]
         public int Width { get; set; }
 
-        [EditingComponent(IntInputComponent.IDENTIFIER, Label = "Height (pixels)", Order = 6)]
+        [EditingComponent(IntInputComponent.IDENTIFIER, Label = "{$Widget.Slideshow.Height$}", Order = 6)]
         public int Height { get; set; }
     }
 }

@@ -42,7 +42,7 @@
                     url: editor.getAttribute("data-upload-url"),
                     clickable: editor.parentElement.querySelector("div#" + tempId + ".dropzone a.dz-clickable"),
 
-                    dictInvalidFileType: "Unsupported file type. Please upload files of the following types: .bmp, .gif, .ico, .png, .wmf, .jpg, .jpeg, .tiff, .tif",
+                    dictInvalidFileType: options.localizationService.getString("InlineEditors.Dropzone.InvalidFileType"),
 
                     previewsContainer: swiper.slides[activeIndexWhenAdded],
                     previewTemplate: previewTemplate,
@@ -89,9 +89,9 @@
                     xhr.onreadystatechange = function () {
                         if (xhr.readyState === 4 && xhr.status === 204) {
                             window.medioClinic.showMessage(
-                                "Could not remove the slide image from page attachments.", "warning");
+                                kentico.localization.strings["InlineEditors.SlideshowEditor.ImageNotDeleted"], "warning");
                             console.warn(
-                                "Could not remove the slide image from page attachments.");
+                                kentico.localization.strings["InlineEditors.SlideshowEditor.ImageNotDeleted"]);
                         }
                     };
 

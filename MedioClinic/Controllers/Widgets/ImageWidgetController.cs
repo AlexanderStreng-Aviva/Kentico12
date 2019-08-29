@@ -5,7 +5,11 @@ using Kentico.PageBuilder.Web.Mvc;
 using MedioClinic.Controllers.Widgets;
 using MedioClinic.Models.Widgets.ImageWidget;
 
-[assembly: RegisterWidget("MedioClinic.Widget.Image", typeof(ImageWidgetController), "Image", Description = "Image widget", IconClass = "icon-picture")]
+[assembly: RegisterWidget("MedioClinic.Widget.Image", 
+    typeof(ImageWidgetController), 
+    "{$Widget.Image.Name$}", 
+    Description = "{$Widget.Image.Description$}", 
+    IconClass = "icon-picture")]
 namespace MedioClinic.Controllers.Widgets
 {
     public class ImageWidgetController : WidgetController<ImageWidgetProperties>
