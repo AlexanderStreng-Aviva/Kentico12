@@ -2,7 +2,12 @@
 using Kentico.PageBuilder.Web.Mvc;
 using MedioClinic.Controllers.Sections;
 
-[assembly: RegisterSection("MedioClinic.Section.TwoColumnFiftyFifty", typeof(TwoColumnFiftyFiftySectionController), "Two 50/50 columns", Description = "Two columns, divided 50/50", IconClass = "icon-l-cols-2")]
+[assembly: RegisterSection(
+    "MedioClinic.Section.TwoColumnFiftyFifty", 
+    typeof(TwoColumnFiftyFiftySectionController),
+    "{$Section.TwoColumnFiftyFifty.Name$}", 
+    Description = "{$Section.TwoColumnFiftyFifty.Description$}",
+    IconClass = "icon-l-cols-2")]
 namespace MedioClinic.Controllers.Sections
 {
     public class TwoColumnFiftyFiftySectionController : Controller

@@ -6,8 +6,8 @@ using MedioClinic.Controllers.Sections;
 [assembly: RegisterSection(
     "MedioClinic.Section.SingleColumn",
     typeof(SingleColumnSectionController),
-    "Single column",
-    Description = "Single-column section",
+    "{$Section.SingleColumn.Name$}",
+    Description = "{$Section.SingleColumn.Description$}",
     IconClass = "icon-square")]
 namespace MedioClinic.Controllers.Sections
 {
