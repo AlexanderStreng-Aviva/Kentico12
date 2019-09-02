@@ -88,10 +88,8 @@
 
                     xhr.onreadystatechange = function () {
                         if (xhr.readyState === 4 && xhr.status === 204) {
-                            window.medioClinic.showMessage(
-                                kentico.localization.strings["InlineEditors.SlideshowEditor.ImageNotDeleted"], "warning");
-                            console.warn(
-                                kentico.localization.strings["InlineEditors.SlideshowEditor.ImageNotDeleted"]);
+                            window.medioClinic.showMessage(kentico.localization.strings["InlineEditors.SlideshowEditor.ImageNotDeleted"], "warning");
+                            console.warn(kentico.localization.strings["InlineEditors.SlideshowEditor.ImageNotDeleted"]);
                         }
                     };
 

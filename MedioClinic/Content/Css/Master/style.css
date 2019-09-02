@@ -688,4 +688,23 @@ border-radius: 2px; */
     padding: 0.5rem;
 }
 
+[type="checkbox"] {
+    padding: initial;
+}
+
+    [type="checkbox"]:not(:checked),
+    [type="checkbox"]:checked {
+        position: initial;
+        opacity: initial;
+        pointer-events: initial;
+    }
+
+label {
+    font-size: initial;
+}
+
+span.ktc-checkbox {
+    line-height: 3rem;
+}
+
 

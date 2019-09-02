@@ -1,0 +1,9 @@
+﻿@using Kentico.Forms.Web.Mvc
+@using MedioClinic.Models.FormComponents
+@model MedioClinic.Models.FormComponents.MediaLibrarySelection.MediaLibrarySelectionComponent
+
+@{ 
+    var htmlAttributes = ViewData.GetEditorHtmlAttributes();
+}
+
+@Html.DropDownListFor(model => model.SelectedValue, Model.Items, htmlAttributes)

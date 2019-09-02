@@ -631,6 +631,8 @@
     <Content Include="Content\Css\Master\materialize.min.css" />
     <Content Include="Content\Css\Master\style.css" />
     <Content Include="Content\Css\Master\swiper.css" />
+    <Content Include="Content\FormComponents\media-library-uploader-component.js" />
+    <Content Include="Content\FormComponents\MediaLibraryUploaderComponent.css" />
     <Content Include="Content\Images\facebook.png" />
     <Content Include="Content\Images\Logo\favicon.png" />
     <Content Include="Content\Images\Logo\Logoic.png" />
@@ -792,6 +794,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\DoctorsController.cs" />
+    <Compile Include="Controllers\FormComponents\MediaLibraryUploaderController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InlineEditors\ImageUploaderController.cs" />
     <Compile Include="Controllers\InlineEditors\SlideshowManagementContoller.cs" />
@@ -804,6 +807,7 @@
     <Compile Include="Controllers\Widgets\ImageWidgetController.cs" />
     <Compile Include="Controllers\Widgets\SlideshowWidgetController.cs" />
     <Compile Include="Controllers\Widgets\TextWidgetController.cs" />
+    <Compile Include="Extensions\FormExtensions.cs" />
     <Compile Include="Extensions\LocalizationExtensions.cs" />
     <Compile Include="Extensions\UrlExtensions.cs" />
     <Compile Include="Global.asax.cs">
@@ -812,6 +816,11 @@
     <Compile Include="Models\Contact\ContactViewModel.cs" />
     <Compile Include="Models\Doctors\DoctorDetailViewModel.cs" />
     <Compile Include="Models\Doctors\DoctorsViewModel.cs" />
+    <Compile Include="Models\FormComponents\FormValidationRules\MediaLibraryImageDimensionValidationRule.cs" />
+    <Compile Include="Models\FormComponents\MediaLibrarySelection\MediaLibrarySelectionComponent.cs" />
+    <Compile Include="Models\FormComponents\MediaLibrarySelection\MediaLibrarySelectionProperties.cs" />
+    <Compile Include="Models\FormComponents\MediaLibraryUploader\MediaLibraryUploaderComponent.cs" />
+    <Compile Include="Models\FormComponents\MediaLibraryUploader\MediaLibraryUploaderProperties.cs" />
     <Compile Include="Models\Home\HomeViewModel.cs" />
     <Compile Include="Models\InlineEditors\ImageUploader\ImageUploaderEditorViewModel.cs" />
     <Compile Include="Models\InlineEditors\InlineEditorViewModel.cs" />
@@ -866,6 +875,8 @@
     <Content Include="Views\Shared\InlineEditors\_ImageUploaderEditor.cshtml" />
     <Content Include="Views\Shared\Widgets\_SlideshowWidget.cshtml" />
     <Content Include="Views\Shared\InlineEditors\_SlideshowEditor.cshtml" />
+    <Content Include="Views\Shared\FormComponents\_MedioClinic.FormComponent.MediaLibrarySelection.cshtml" />
+    <Content Include="Views\Shared\FormComponents\_MedioClinic.FormComponent.MediaLibraryUploader.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Business\Business.csproj">

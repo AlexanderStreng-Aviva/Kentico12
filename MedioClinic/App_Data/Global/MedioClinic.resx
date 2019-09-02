@@ -126,7 +126,4 @@
   <data name="InlineEditors.SlideshowEditor.ImageNotDeleted" xml:space="preserve">
     <value>Could not remove the slide image from page attachments.</value>
   </data>
-  <data name="String1" xml:space="preserve">
-    <value>Could not remove the slide image from page attachments.</value>
-  </data>
 </root>
