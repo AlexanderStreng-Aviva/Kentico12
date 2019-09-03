@@ -795,6 +795,7 @@
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\DoctorsController.cs" />
     <Compile Include="Controllers\FormComponents\MediaLibraryUploaderController.cs" />
+    <Compile Include="Controllers\FormTestController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InlineEditors\ImageUploaderController.cs" />
     <Compile Include="Controllers\InlineEditors\SlideshowManagementContoller.cs" />
@@ -821,6 +822,8 @@
     <Compile Include="Models\FormComponents\MediaLibrarySelection\MediaLibrarySelectionProperties.cs" />
     <Compile Include="Models\FormComponents\MediaLibraryUploader\MediaLibraryUploaderComponent.cs" />
     <Compile Include="Models\FormComponents\MediaLibraryUploader\MediaLibraryUploaderProperties.cs" />
+    <Compile Include="Models\Forms\BaseFormViewModel.cs" />
+    <Compile Include="Models\Forms\FloridaEventRegistrationViewModel.cs" />
     <Compile Include="Models\Home\HomeViewModel.cs" />
     <Compile Include="Models\InlineEditors\ImageUploader\ImageUploaderEditorViewModel.cs" />
     <Compile Include="Models\InlineEditors\InlineEditorViewModel.cs" />
