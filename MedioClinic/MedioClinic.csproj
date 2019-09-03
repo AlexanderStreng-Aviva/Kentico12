@@ -888,6 +888,7 @@
     <Content Include="Views\Shared\InlineEditors\_SlideshowEditor.cshtml" />
     <Content Include="Views\Shared\FormComponents\_MedioClinic.FormComponent.MediaLibrarySelection.cshtml" />
     <Content Include="Views\Shared\FormComponents\_MedioClinic.FormComponent.MediaLibraryUploader.cshtml" />
+    <Content Include="Views\FormTest\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Business\Business.csproj">

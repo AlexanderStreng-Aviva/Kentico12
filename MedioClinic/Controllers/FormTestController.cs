@@ -22,9 +22,6 @@ namespace MedioClinic.Controllers
             FormItemRepository = formItemRepository ?? throw new ArgumentNullException(nameof(formItemRepository));
         }
 
-
-
-        [HttpGet]
         public ActionResult Index()
         {
             var model = GetPageViewModel(new FloridaEventRegistrationViewModel(),PageName);
