@@ -774,6 +774,14 @@
     <Content Include="Kentico\Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Kentico\Scripts\modal-dialog.js" />
     <Content Include="Kentico\Scripts\shim.min.js" />
+    <Content Include="MedioClinic\media\MedicalCenters\cardioclinic.jpg" />
+    <Content Include="MedioClinic\media\MedicalCenters\dentists.jpg" />
+    <Content Include="MedioClinic\media\MedicalCenters\diabetes.jpg" />
+    <Content Include="MedioClinic\media\MedicalCenters\emergencyservices.jpg" />
+    <Content Include="MedioClinic\media\MedicalCenters\generalpractitioners.jpg" />
+    <Content Include="MedioClinic\media\MedicalCenters\gynecologists.jpg" />
+    <Content Include="MedioClinic\media\MedicalCenters\orthopedics.jpg" />
+    <Content Include="MedioClinic\media\MedicalCenters\orthopedics_1.jpg" />
     <Content Include="Scripts\Master\init.js" />
     <Content Include="Scripts\Master\jquery-3.3.1.js" />
     <Content Include="Scripts\Master\main.js" />
@@ -893,6 +901,8 @@
     <EmbeddedResource Include="App_Data\Global\Resources\Kentico.Components.resx" />
     <EmbeddedResource Include="App_Data\Global\Resources\Kentico.FormBuilder.resx" />
     <EmbeddedResource Include="App_Data\Global\Resources\Kentico.PageBuilder.resx" />
+    <EmbeddedResource Include="CMSResources\CMS.resx" />
+    <EmbeddedResource Include="CMSResources\Hotfix.resx" />
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\packages\AWSSDK.S3.3.1.9.0\analyzers\dotnet\cs\AWSSDK.S3.CodeAnalysis.dll" />
