@@ -4689,6 +4689,12 @@
             Custom theme name.
             </summary>
         </member>
+        <member name="P:CMS.Helpers.URLHelper.Host">
+            <summary>
+            Application's host without port. Is to be used for customizing host in case of having application behind a proxy.
+            Can be set via AppSettings's key 'CMSUrlHost'. Front-end application is to be customized by 'SitePresentationUrl'.
+            </summary>
+        </member>
         <member name="P:CMS.Helpers.URLHelper.UrlPort">
             <summary>
             Application's URL port.

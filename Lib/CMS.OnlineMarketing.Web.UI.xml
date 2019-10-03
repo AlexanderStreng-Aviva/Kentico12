@@ -423,6 +423,11 @@
             Gets the variant for currently edited page.
             </summary>
         </member>
+        <member name="P:CMS.OnlineMarketing.Web.UI.ABVariantSelector.CanCurrentABTestBeModified">
+            <summary>
+            Returns true if <see cref="P:CMS.OnlineMarketing.Web.UI.ABVariantSelector.CurrentABTest"/> is modifiable without affecting results.
+            </summary>
+        </member>
         <member name="P:CMS.OnlineMarketing.Web.UI.ABVariantSelector.ABTestVariants">
             <summary>
             Contains A/B test variants for current node in order in which they are to be displayed.
@@ -491,6 +496,12 @@
             <summary>
             Loads existing A/B test variants into class property.
             Should be called only once in page lifecycle from <see cref="M:CMS.OnlineMarketing.Web.UI.ABVariantSelector.OnInit(System.EventArgs)"/> method.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ABVariantSelector.VerifyCanModifyABTest">
+            <summary>
+            Verifies that current AB test is currently in a state when it can be modified.
+            Throws <see cref="T:System.InvalidOperationException"/> if test is in a state when it can't be modified.
             </summary>
         </member>
         <member name="P:CMS.OnlineMarketing.Web.UI.ABVariantSelector.CallbackResult.SuccessMessage">

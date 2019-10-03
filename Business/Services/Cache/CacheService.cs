@@ -9,6 +9,7 @@ namespace Business.Services.Cache
     public class CacheService : BaseService, ICacheService
     {
         private readonly IHttpContextAccessor _httpContextAccessor;
+
         public ISiteContextService SiteContextService { get; }
 
         // Injects a service which holds the site name and current culture code name
@@ -32,6 +33,24 @@ namespace Business.Services.Cache
             // Sets cache dependency to clear the cache when there is any change to node with given GUID in Kentico
             HttpContext.Current.Response.AddCacheItemDependency(dependencyCacheKey);
         }
+
+        public string GetNodeCacheDependencyKey(string nodeAliasPath)
+        {
+            return $"nodealias|{SiteContextService.SiteName}|{nodeAliasPath}".ToLowerInvariant();
+        }
+
+        public void SetOutputCacheDependency(string nodeAliasPath)
+        {
+            var dependencyCacheKey = GetNodeCacheDependencyKey(nodeAliasPath);
+
+            // Ensures that the dummy key cache item exists
+            CacheHelper.EnsureDummyKey(dependencyCacheKey);
+
+            // Sets cache dependency to clear the cache when there is any change to node with given GUID in Kentico
+            HttpContext.Current.Response.AddCacheItemDependency(dependencyCacheKey);
+        }
+
+
 
         public TData Cache<TData>(Func<TData> dataLoadMethod, int cacheForMinutes, string cacheItemName, string cacheDependencyKey)
         {

@@ -10,6 +10,10 @@ namespace Business.Services.Cache
 
         void SetOutputCacheDependency(Guid nodeGuid);
 
+        string GetNodeCacheDependencyKey(string nodeAliasPath);
+
+        void SetOutputCacheDependency(string nodeAliasPath);
+
         TData Cache<TData>(Func<TData> dataLoadMethod, int cacheForMinutes, string cacheItemName,
             string cacheDependencyKey);
     }
